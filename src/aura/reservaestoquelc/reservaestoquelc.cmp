@@ -1,0 +1,39 @@
+<!--
+ - Created by guilhermereis on 25/01/21.
+ -->
+
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId,force:lightningQuickActionWithoutHeader"
+                access="global" >
+    <aura:html tag="style">
+        lightning-primitive-datatable-tooltip-bubble,
+        .slds-popover_error{
+            z-index: 9999 !important;
+        }
+        .slds-docked-form-footer{
+            z-index: 0;
+        }
+
+        .modal-body{
+            height: unset !important;
+            max-height: 900vh;
+            padding: 0;
+        }
+
+        div.cuf-content{
+            padding: 0 !important;
+        }
+
+        .slds-table_header-fixed_container{
+            margin: 5px;
+        }
+
+        .slds-modal__container{
+            max-width: 100%;
+            width: 80%;
+            margin: auto;
+        }
+
+    </aura:html>
+    <aura:attribute name="recordId" type="String" />
+    <c:reservaestoquelwc recordId="{!v.recordId}" onclose="{!c.closeQA}"></c:reservaestoquelwc>
+</aura:component>

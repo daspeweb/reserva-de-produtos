@@ -1,0 +1,20 @@
+<!--
+ - Created by guilhermereis on 25/01/21.
+ -->
+
+<!-- ReservaEstoqueLWC -->
+<template>
+    <div class="slds-card slds-card_boundary headerBottomBorder forceRelatedListCardDesktop">
+
+        <lightning-datatable
+                key-field="Id"
+                data={opportunity.OpportunityLineItems.records}
+                show-row-number-column
+                hide-checkbox-column=true
+                onsave={reserveStock}
+                errors={errors}
+                draft-values={draftValues}
+                columns={columns}>
+        </lightning-datatable>
+    </div>
+</template>
