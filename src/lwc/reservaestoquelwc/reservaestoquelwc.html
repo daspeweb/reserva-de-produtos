@@ -5,6 +5,30 @@
 <!-- ReservaEstoqueLWC -->
 <template>
     <div class="slds-card slds-card_boundary headerBottomBorder forceRelatedListCardDesktop">
+        <div class="slds-grid slds-page-header forceRelatedListCardHeader">
+            <header class="slds-media slds-media--center slds-has-flexi-truncate">
+                <div class="slds-media__body">
+                    <h2 class="slds-card__header-title">
+                        <a class="slds-card__header-link baseCard__header-title-container" href="#">
+                            <span class="slds-truncate slds-m-right--xx-small" title="Reservas ">Reservas ({opportunity.FilialFaturamento__r.Name})</span>
+                        </a>
+                    </h2>
+                </div>
+            </header>
+            <div class="slds-no-flex" >
+                <div class="actionsContainer">
+                    <ul class="branding-actions slds-button-group slds-m-left--xx-small small oneActionsRibbon forceActionsContainer" data-aura-rendered-by="436:0" data-aura-class="oneActionsRibbon forceActionsContainer">
+                        <lightning-button-icon icon-name="utility:refresh"  variant="border-filled" alternative-text="Recarregar" title="Recarregar" onclick={getOpportunityAndRelatedData}></lightning-button-icon>
+                        <lightning-button-icon icon-name="utility:delete"  variant="border-filled" alternative-text="Excluir reservas" title="Excluir reservas" onclick={deleteAllReserva}></lightning-button-icon>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <p class="slds-m-around_x-small" if:true={opportunity.Reservas__r}>
+            <lightning-icon icon-name="utility:warning" alternative-text="Warning!" variant="warning"
+                            title="warning variant xx-small" size="xx-small"></lightning-icon>
+            Já existem reservas para esta oportunidade. Reservar novamente excluirá as reservas anteriores.</p>
 
         <lightning-datatable
                 key-field="Id"
