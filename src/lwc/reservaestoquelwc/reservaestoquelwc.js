@@ -126,7 +126,7 @@ export default class ReservaEstoqueLWC extends LightningElement {
                 result = JSON.parse(result)
                 console.log('@@@@result: ', result)
                 if (result.error){
-                    this.errors = {rows: {}}
+                    this.errors = {rows: {}, table: {}}
                     this.opportunity.OpportunityLineItems.records.forEach((oli, index) => {
                         if (result.errorList[index] === '') return
                         this.errors.rows[oli.Id] = {
